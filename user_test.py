@@ -42,15 +42,18 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
-    @classmethod
-    def test_user_login(cls,user_name,password):
+
+    def test_user_login(self):
         '''
         test for user to login with the username and password
         '''
 
-        for user in cls.user_list:
-            if user.user_name == user_name & user.password == password:
-                return user
+        self.new_user.save_user()
+        test_user = User("john","cena","cena2yahoo.com","jcena","67567")
+        test_user.save_user()
+
+        loggedin_user = User.user_login("jcena","67567")
+        self.assertEqual(loggedin_user.email,test_user.email)
 
 if __name__ == '__main__':
     unittest.main()
