@@ -33,5 +33,16 @@ class TestUsercredentials(unittest.TestCase):
         test_credential.save_credentials()
         self.assertEqual(len(Usercredentials.user_credential_list),2)
 
+    def test_delete_credentials(self):
+        '''
+        test is credentials can be removed from the list
+        '''
+        self.new_credentials.save_credentials()
+        test_credentials = Usercredentials("twitter","787627")
+        test_credentials.save_credentials()
+
+        self.new_credentials.delete_credentials()
+        self.assertEqual(len(Usercredentials.user_credential_list),1)
+
 if __name__ == '__main__':
     unittest.main()    
