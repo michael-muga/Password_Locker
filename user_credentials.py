@@ -12,3 +12,7 @@ class Usercredentials:
 
         self.site_name = site_name
         self.password = password
+
+    def save_credentials(self):
+
+        Usercredentials.user_credential_list.append(self)
