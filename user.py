@@ -20,3 +20,14 @@ class User:
         '''
 
         User.user_list.append(self)
+
+    
+    @classmethod
+    def user_login(cls,user_name,password):
+        '''
+        test for user to login with the username and password
+        '''
+
+        for user in cls.user_list:
+            if user.user_name == user_name & user.password == password:
+                return user
