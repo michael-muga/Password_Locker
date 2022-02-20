@@ -42,5 +42,15 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
+    @classmethod
+    def test_user_login(cls,user_name,password):
+        '''
+        test for user to login with the username and password
+        '''
+
+        for user in cls.user_list:
+            if user.user_name == user_name & user.password == password:
+                return user
+
 if __name__ == '__main__':
     unittest.main()
