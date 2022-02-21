@@ -8,12 +8,15 @@ class TestUser(unittest.TestCase):
     '''
 
     def setUp(self):
+        '''
+        The method that runs before each test case
+        '''
 
         self.new_user = User("michael","muga","michael@gmail.com","mike","febr2000")
 
     def test__init(self):
         '''
-        test case to test if the obect is initialised properly
+        test case to test if the object is initialised properly
         '''
 
         self.assertEqual(self.new_user.first_name,"michael")
@@ -23,7 +26,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.password,"febr2000")
 
     def tearDown(self):
-
+        '''
+        method to clean up after each test case has run
+        '''
         User.user_list = []
 
 
@@ -36,7 +41,9 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list),1)
 
     def test_save_multiple_users(self):
-
+        '''
+        test case for testing saving multiple users into the user list
+        '''
         self.new_user.save_user()
         test_user = User("john","cena","cena2yahoo.com","jcena","67567")
         test_user.save_user()

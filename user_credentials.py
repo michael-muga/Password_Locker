@@ -15,6 +15,10 @@ class Usercredentials:
 
     def save_credentials(self):
 
+        '''
+        method to save a credential into the user credential list
+        '''
+
         Usercredentials.user_credential_list.append(self)
 
     def delete_credentials(self):

@@ -9,10 +9,15 @@ class TestUsercredentials(unittest.TestCase):
 
     def setUp(self):
 
+        '''
+        setup method to run before each test case
+        '''
         self.new_credentials = Usercredentials("gmail","254mike")
 
     def test__init(self):
-
+        '''
+        test case to test if object is initialised properly
+        '''
         self.assertEqual(self.new_credentials.site_name,"gmail")
         self.assertEqual(self.new_credentials.password,"254mike")
 
@@ -23,11 +28,16 @@ class TestUsercredentials(unittest.TestCase):
         Usercredentials.user_credential_list=[]
 
     def test_save_credential(self):
-
+        '''
+        test method to save a credential to the user credential list
+        '''
         self.new_credentials.save_credentials()
         self.assertEqual(len(Usercredentials.user_credential_list),1)
 
     def test_save_multiple_credentials(self):
+        '''
+        test method to save multiple user credentials to the user credential list
+        '''
         self.new_credentials.save_credentials()
         test_credential = Usercredentials("twitter","787627")
         test_credential.save_credentials()
@@ -35,7 +45,7 @@ class TestUsercredentials(unittest.TestCase):
 
     def test_delete_credentials(self):
         '''
-        test is credentials can be removed from the list
+        test if credentials can be removed from the list
         '''
         self.new_credentials.save_credentials()
         test_credentials = Usercredentials("twitter","787627")
